@@ -1,0 +1,24 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["title", "description", "sizeBytes", "categories", "images", "uploadDate", "uploadedBy"],
+    "properties": {
+      "title": { "bsonType": "string" },
+      "description": { "bsonType": "string", "maxLength": 160 },
+      "sizeBytes": { "bsonType": ["int", "long"] },
+      "categories": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" }
+      },
+      "images": {
+        "bsonType": "array",
+        "items": { "bsonType": "string" }
+      },
+      "uploadDate": { "bsonType": "date" },
+      "uploadedBy": { "bsonType": "objectId" },
+      "torrentFilePath": { "bsonType": "string" },
+      "ratingAvg": { "bsonType": ["double", "int", "null"] },
+      "ratingCount": { "bsonType": ["int", "null"] }
+    }
+  }
+}

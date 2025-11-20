@@ -1,0 +1,17 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["username", "email", "passwordHash", "role", "banned", "createdAt"],
+    "properties": {
+      "username": { "bsonType": "string" },
+      "email": { "bsonType": "string" },
+      "passwordHash": { "bsonType": "string" },
+      "role": {
+        "enum": ["user", "moderator", "admin"],
+        "description": "livello utente"
+      },
+      "banned": { "bsonType": "bool" },
+      "createdAt": { "bsonType": "date" }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": ["torrentId", "userId", "downloadedAt"],
+    "properties": {
+      "torrentId": { "bsonType": "objectId" },
+      "userId": { "bsonType": "objectId" },
+      "downloadedAt": { "bsonType": "date" }
+    }
+  }
+}

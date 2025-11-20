@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Piattaforma Torrent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-logo">∞</span>
+        <span class="brand-title">Piattaforma Torrent</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <!-- AUTENTICAZIONE -->
+      <section id="auth-section" class="section-grid">
+        <div class="section-header">
+          <h2>Autenticazione</h2>
+          <p id="current-user" class="current-user">Non sei loggato.</p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Registrati</h3>
+            <form id="register-form" class="form-grid">
+              <label>
+                Username
+                <input type="text" id="reg-username" placeholder="Scegli un username" required>
+              </label>
+              <label>
+                Email
+                <input type="email" id="reg-email" placeholder="tuo@email.com" required>
+              </label>
+              <label>
+                Password
+                <input type="password" id="reg-password" placeholder="••••••••" required>
+              </label>
+              <button type="submit" class="btn primary">Registrati</button>
+            </form>
+            <div id="register-message" class="message"></div>
+          </div>
+
+          <div class="card">
+            <h3>Login</h3>
+            <form id="login-form" class="form-grid">
+              <label>
+                Username
+                <input type="text" id="login-username" placeholder="Il tuo username" required>
+              </label>
+              <label>
+                Password
+                <input type="password" id="login-password" placeholder="••••••••" required>
+              </label>
+              <button type="submit" class="btn secondary">Login</button>
+            </form>
+            <div id="login-message" class="message"></div>
+            <button id="logout-btn" class="btn ghost" style="display:none;margin-top:0.75rem;">Logout</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RICERCA -->
+      <section id="search-section" class="section-grid">
+        <div class="section-header">
+          <h2>Ricerca Torrent</h2>
+          <p>Cerca per titolo, descrizione, categoria e ordina i risultati come vuoi.</p>
+        </div>
+
+        <div class="card">
+          <form id="search-form" class="search-grid">
+            <label>
+              Titolo contiene
+              <input type="text" id="titleSearch" placeholder="Es. Matrix">
+            </label>
+            <label>
+              Descrizione contiene
+              <input type="text" id="descSearch" placeholder="Es. intelligenza artificiale">
+            </label>
+            <label>
+              Categoria
+              <input type="text" id="categorySearch" placeholder="Es. Film, Musica">
+            </label>
+            <div class="search-row">
+              <label>
+                Ordina per
+                <select id="sortField">
+                  <option value="date">Data caricamento</option>
+                  <option value="size">Dimensione</option>
+                </select>
+              </label>
+              <label>
+                Ordine
+                <select id="sortOrder">
+                  <option value="desc">Decrescente</option>
+                  <option value="asc">Crescente</option>
+                </select>
+              </label>
+              <button type="submit" class="btn primary full">Cerca</button>
+            </div>
+          </form>
+        </div>
+
+        <div id="results" class="results-grid"></div>
+      </section>
+
+      <!-- DETTAGLIO TORRENT -->
+      <section id="detail-section" class="section-grid" style="display:none;">
+        <div class="section-header">
+          <h2>Dettaglio torrent</h2>
+        </div>
+
+        <div class="detail-layout">
+          <div class="card" id="torrent-detail">
+            <!-- riempito da app.js -->
+          </div>
+
+          <div class="card">
+            <div class="card-header-inline">
+              <h3>Commenti</h3>
+            </div>
+            <div id="comments-list" class="comments-list"></div>
+
+            <div id="add-comment-box" class="add-comment-box">
+              <h4>Lascia un commento</h4>
+              <form id="comment-form" class="form-grid">
+                <label>
+                  Testo (max 160 caratteri)
+                  <textarea id="comment-text" maxlength="160" placeholder="Scrivi cosa ne pensi..."></textarea>
+                </label>
+                <label>
+                  Voto
+                  <select id="comment-rating">
+                    <option value="1">1 stella</option>
+                    <option value="2">2 stelle</option>
+                    <option value="3">3 stelle</option>
+                    <option value="4">4 stelle</option>
+                    <option value="5">5 stelle</option>
+                  </select>
+                </label>
+                <button type="submit" class="btn primary">Invia commento</button>
+              </form>
+              <div id="comment-message" class="message"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
